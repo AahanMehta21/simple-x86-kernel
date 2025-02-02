@@ -1,8 +1,10 @@
-goal: run
+boot32:
+	nasm -f bin  boot32.asm -o boot.bin
+	qemu-system-x86_64 -fda boot.bin
 
-run:
+boot:
 	nasm -f bin boot.asm -o boot.bin
-	qemu-system-x86_64 -fda boot1.bin
+	qemu-system-x86_64 -fda boot.bin
 
 git:
 	@read -p "Enter commit message: " msg; \
