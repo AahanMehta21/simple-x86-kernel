@@ -1,10 +1,17 @@
 boot32:
-	nasm -f bin  boot32.asm -o boot.bin
+	nasm -f bin boot32.asm -o boot.bin
 	qemu-system-x86_64 -fda boot.bin
 
 boot:
 	nasm -f bin boot.asm -o boot.bin
 	qemu-system-x86_64 -fda boot.bin
+
+bootbeyond:
+	nasm -f bin bootbeyond32.asm -o boot.bin
+	qemu-system-x86_64 -fda boot.bin
+
+clean:
+	rm boot.bin
 
 git:
 	@read -p "Enter commit message: " msg; \
